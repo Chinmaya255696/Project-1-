@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Style -->
+    <style>
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        div {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 150px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            height: 100px;
+        }
+    </style>
+    <title>Project-1</title>
+</head>
+<body>
+    <div>
+        <p>Enter your Initial value</p>
+        <!-- Input for entering a number -->
+        <input id="inputNumber" placeholder="Enter a number">
+        <br/>
+        <!-- Button for addition with a single click -->
+        <button onclick="performOperation('+2')">onclick() +2</button>
+        <!-- Button for subtraction with a double click -->
+        <button ondblclick="performOperation('-2')">OndblClick() -2</button>
+        <!-- Button for multiplication on mouse enter -->
+        <button onmouseenter="performOperation('*2')">onmouseenter() *2</button>
+        <!-- Button for division on mouse over -->
+        <button onmouseover="performOperation('/2')">onmouseover() /2</button>
+        <!-- Button for modulus on mouse out -->
+        <button onmouseout="performOperation('%2')">onmouseout() %2</button>
+        <br/>
+        <!-- Result box to display the outcome -->
+        <div id="result"></div>
+    </div>
+    <script>
+        // JavaScript function to perform arithmetic operations
+        function performOperation(operation) {
+            // Get the input value and parse it as a float
+            var inputNumber = parseFloat(document.getElementById('inputNumber').value);
+            var result = 0;
+
+            // Perform the specified operation
+            switch (operation) {
+                case '+2':
+                    result = inputNumber + 2;
+                    break;
+                case '-2':
+                    result = inputNumber - 2;
+                    break;
+                case '*2':
+                    result = inputNumber * 2;
+                    break;
+                case '/2':
+                    result = inputNumber / 2;
+                    break;
+                case '%2':
+                    result = inputNumber % 2;
+                    break;
+                default:
+                    console.error('Invalid operation.');
+                    return;
+            }
+
+            // Log the result to the console
+            console.log('Result:', result);
+
+            // Display the result in the result box
+            document.getElementById('result').textContent = 'Result: ' + result;
+        }
+    </script>
+</body>
+</html>
